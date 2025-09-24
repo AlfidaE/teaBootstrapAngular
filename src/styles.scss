@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#carouselExampleFade {
+  padding-top: 72px;
+  margin: 0 auto;
+}
+.carousel-control-prev-icon {
+  background-image: url("./assets/images/arrowLeft.png");
+}
+
+.carousel-control-next-icon {
+  background-image: url("./assets/images/arrowRight.png");
+}
+.h1 {
+  padding: 72px 0 50px 0;
+}
+.card {
+  max-width: 416px;
+  height: 362px;
+  margin-bottom: 24px;
+}
+.cardBlock {
+  justify-content: center;
+}
+.row {
+  justify-content: center;
+}
+.accordion-title {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 50px 0;
+}
+.accordion {
+  margin: 0 auto;
+  max-width: 856px;
+}
+.accordion-item {
+  padding-bottom: 16px;
+  border: none;
+}
+.accordion-button {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+  color: white;
+}
+.accordion-header {
+  color: #0a53be;
+}
+.accordion-header .accordion-button::after {
+  background-image: url("./assets/images/arrow-down.png");
+}
+.order-title {
+  display: flex;
+  justify-content: center;
+  padding: 72px 0 60px 0;
+}
+.order-form {
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
+#dialog {
+  display: none;
+  font-size: 20px;
+  margin-top: 15px;
+}
+.ui-widget-header {
+  color: #16734a;
+}
+
+
+.navbar-footer {
+  padding: 19px 0 19px 15px;
+}
