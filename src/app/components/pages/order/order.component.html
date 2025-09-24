@@ -1,1 +1,53 @@
-<p>order works!</p>
+<div class="order-form col-lg-6 wow animate__fadeInLeft" id="orderForm">
+  <form id="form">
+    <div class="order-title"><h2>Сделать заказ</h2></div>
+    <div class="row mb-3">
+      <div class="col">
+        <label for="firstName" class="form-label">Имя</label>
+        <input type="text" class="form-control hvr-grow-shadow" id="firstName">
+      </div>
+      <div class="col">
+        <label for="lastName" class="form-label">Фамилия</label>
+        <input type="text" class="form-control hvr-grow-shadow" id="lastName">
+      </div>
+      <div class="col">
+        <label for="phone" class="form-label">Телефон</label>
+        <input type="tel" class="form-control hvr-grow-shadow" id="phone">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label for="country" class="form-label">Страна</label>
+        <input type="text" class="form-control hvr-grow-shadow" id="country">
+      </div>
+      <div class="col">
+        <label for="zip" class="form-label">Индекс</label>
+        <input type="number" class="form-control hvr-grow-shadow" id="zip">
+      </div>
+      <div class="col">
+        <label for="product" class="form-label">Товар</label>
+        <input type="text" class="form-control hvr-grow-shadow" id="product">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="address" class="form-label">Адрес</label>
+      <textarea class="form-control hvr-grow-shadow" id="address" rows="3"></textarea>
+
+      <label for="comment" class="form-label">Комментарий</label>
+      <textarea class="form-control hvr-grow-shadow" id="comment" rows="3"></textarea>
+    </div>
+
+    <button class="btn btn-primary hvr-pulse" id="submitButton">Отправить</button>
+
+  </form>
+
+  <div id="dialog" title="Успешно">
+    <p>Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</p>
+  </div>
+
+
+
+
+</div>
