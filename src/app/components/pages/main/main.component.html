@@ -1,32 +1,61 @@
+<!--<div id="carouselExampleFade" class="carousel slide carousel-fade col-lg-8 wow animate__fadeInRightBig">-->
+<!--  <div class="carousel-inner">-->
+<!--    <div class="carousel-item active">-->
+<!--      <a class="popUp-image" href="assets/images/Banner1.png"><img src="assets/images/Banner1.png" class="d-block w-100" alt="Изображение"></a>-->
+<!--    </div>-->
+<!--    <div class="carousel-item">-->
+<!--      <a class="popUp-image" href="assets/images/Banner2.png"><img src="assets/images/Banner2.png" class="d-block w-100" alt="Изображение"></a>-->
+<!--    </div>-->
+<!--    <div class="carousel-item">-->
+<!--      <a class="popUp-image" href="assets/images/Banner3.png"><img src="assets/images/Banner3.png" class="d-block w-100" alt="Изображение"></a>-->
+<!--    </div>-->
+<!--    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">-->
+<!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--      <span class="visually-hidden">Previous</span>-->
+<!--    </button>-->
+<!--    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">-->
+<!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--      <span class="visually-hidden">Next</span>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div id="carouselExampleFade" class="carousel slide carousel-fade col-lg-8 wow animate__fadeInRightBig">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <a class="popUp-image" href="assets/images/Banner1.png"><img src="assets/images/Banner1.png" class="d-block w-100" alt="Изображение"></a>
+    <div class="carousel-item active"> <!-- Только первый активный -->
+      <a class="popUp-image" href="assets/images/Banner1.png">
+        <img src="assets/images/Banner1.png" class="d-block w-100" alt="Изображение">
+      </a>
     </div>
-    <div class="carousel-item active">
-      <a class="popUp-image" href="assets/images/Banner2.png"><img src="assets/images/Banner2.png" class="d-block w-100" alt="Изображение"></a>
+    <div class="carousel-item"> <!-- Без active -->
+      <a class="popUp-image" href="assets/images/Banner2.png">
+        <img src="assets/images/Banner2.png" class="d-block w-100" alt="Изображение">
+      </a>
     </div>
-    <div class="carousel-item active">
-      <a class="popUp-image" href="assets/images/Banner3.png"><img src="assets/images/Banner3.png" class="d-block w-100" alt="Изображение"></a>
+    <div class="carousel-item"> <!-- Без active -->
+      <a class="popUp-image" href="assets/images/Banner3.png">
+        <img src="assets/images/Banner3.png" class="d-block w-100" alt="Изображение">
+      </a>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+  <!-- Кнопки должны быть вне carousel-inner -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-
 
 <div class="accordion-title"><h2>Ответы на часто задаваемые вопросы</h2></div>
 
 <div class="accordion col-lg-8 wow animate__fadeInRight" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         Собираете ли вы подарочные боксы?
       </button>
     </h2>
@@ -38,7 +67,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
         Сколько у вас разновидностей чая?
       </button>
     </h2>
@@ -50,7 +80,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
         В какой срок осуществляется доставка?
       </button>
     </h2>
@@ -62,7 +93,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
         У вас обновляется ассортимент?
       </button>
     </h2>
@@ -74,7 +106,8 @@
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header">
-      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+      <button class="accordion-button collapsed bg-primary .bg-gradient" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
         Какого объема у вас пачки чая?
       </button>
     </h2>
@@ -85,3 +118,22 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal d-none" tabindex="-1" id="myModal" data-bs-backdrop="true" data-bs-keyboard="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+    <div class="modal-content text-center">
+      <div class="modal-header border-0 justify-content-end">
+        <button type="button" class="btn-close"  (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 pt-0">
+        <h1 class="modal-title fs-5 mb-4">Посмотрите наши чайные коллекции</h1>
+        <div class="d-flex flex-column gap-3">
+          <a type="button" class="btn btn-primary" routerLink="/catalog" (click)="closeModal()">Смотреть</a>
+          <button type="button" class="btn btn-secondary" (click)="closeModal()" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
