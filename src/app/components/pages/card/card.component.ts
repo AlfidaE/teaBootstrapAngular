@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {ProductType} from "../catalog/catalog.component";
+import {ProductType} from "../../../../types/product.type";
 
 
 @Component({
@@ -19,8 +19,6 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.http.get<ProductType[]>('https://testologia.ru/tea')
@@ -30,7 +28,6 @@ export class CardComponent implements OnInit {
               if (foundProduct) {
                 this.product = {
                   ...foundProduct,
-                  // price: this.generateRandomPrice(300, 1500),
                   isExpanded: true // На странице товара текст всегда развернут
                 };
               } else {
@@ -43,13 +40,5 @@ export class CardComponent implements OnInit {
           });
       }
     });
-  }
-
-  private generateRandomPrice(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  toggleText(product: ProductType): void {
-    product.isExpanded = !product.isExpanded;
   }
 }

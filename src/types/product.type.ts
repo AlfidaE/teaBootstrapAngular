@@ -4,5 +4,5 @@ export type ProductType = {
   title: string;
   description: string;
   isExpanded?: boolean;
-  price?: number;
+  price: number;
 }

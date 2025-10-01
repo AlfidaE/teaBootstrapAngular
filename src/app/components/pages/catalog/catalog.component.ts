@@ -1,17 +1,8 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {ProductType} from "../../../../types/product.type";
 
 declare var WOW: any;
-
-export type ProductType = {
-  isExpanded: boolean;
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-}
-
-
 
 @Component({
   selector: 'app-catalog',
@@ -27,18 +18,22 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     this.http.get<ProductType[]>('https://testologia.ru/tea')
       .subscribe({
         next: (data: ProductType[]) => {
-          this.products = data;
+          this.products = data.map(product => ({
+            ...product,
+            isExpanded: false
+          }));
         },
         error: (error) => {
           console.error('Ошибка при загрузке товаров:', error);
         }
       });
   }
+
   toggleText(product: ProductType): void {
     product.isExpanded = !product.isExpanded;
   }
+
   ngAfterViewInit(): void {
-    // Инициализируем WOW.js после полной загрузки представления
     new WOW({
       boxClass: 'wow',
       animateClass: 'animated',
@@ -48,16 +43,3 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     }).init();
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
