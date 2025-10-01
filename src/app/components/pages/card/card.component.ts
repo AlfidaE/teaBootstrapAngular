@@ -1,65 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-//
-// @Component({
-//   selector: 'app-card',
-//   templateUrl: './card.component.html',
-//   styleUrls: ['./card.component.scss']
-// })
-// export class CardComponent implements OnInit {
-//
-//   constructor() { }
-//
-//   ngOnInit(): void {
-//   }
-//
-// }
-
-//
-// import { Component, OnInit } from '@angular/core';
-// import { ActivatedRoute } from '@angular/router';
-// import { HttpClient } from '@angular/common/http';
-//
-// type ProductType = {
-//   id: number;
-//   image: string;
-//   title: string;
-//   description: string;
-//   price?: number;
-// }
-//
-// @Component({
-//   selector: 'app-card',
-//   templateUrl: './card.component.html',
-//   styleUrls: ['./card.component.scss']
-// })
-// export class CardComponent implements OnInit {
-//   product: ProductType | null = null;
-//
-//   constructor(
-//     private route: ActivatedRoute,
-//     private http: HttpClient
-//   ) { }
-//
-//   ngOnInit(): void {
-//     this.route.params.subscribe(params => {
-//       const productId = params['id'];
-//       this.loadProduct(productId);
-//     });
-//   }
-//
-//   loadProduct(id: string): void {
-//     this.http.get<ProductType[]>('https://testologia.ru/tea')
-//       .subscribe({
-//         next: (products: ProductType[]) => {
-//           this.product = products.find(product => product.id === +id) || null;
-//         },
-//         error: (error) => {
-//           console.error('Ошибка при загрузке товара:', error);
-//         }
-//       });
-//   }
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -81,6 +19,8 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.http.get<ProductType[]>('https://testologia.ru/tea')

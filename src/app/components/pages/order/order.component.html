@@ -1,78 +1,48 @@
-<!--<div class="order-form col-lg-6 wow animate__fadeInLeft" id="orderForm">-->
-<!--  <form id="form">-->
-<!--    <div class="order-title"><h2>Сделать заказ</h2></div>-->
-<!--    <div class="row mb-3">-->
-<!--      <div class="col">-->
-<!--        <label for="firstName" class="form-label">Имя</label>-->
-<!--        <input type="text" class="form-control hvr-grow-shadow" id="firstName" [(ngModel)]="formValues.name">-->
-<!--      </div>-->
-<!--      <div class="col">-->
-<!--        <label for="lastName" class="form-label">Фамилия</label>-->
-<!--        <input type="text" class="form-control hvr-grow-shadow" id="lastName" [(ngModel)]="formValues.lastName">-->
-<!--      </div>-->
-<!--      <div class="col">-->
-<!--        <label for="phone" class="form-label">Телефон</label>-->
-<!--        <input type="tel" class="form-control hvr-grow-shadow" id="phone" [(ngModel)]="formValues.phone">-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="row mb-3">-->
-<!--      <div class="col">-->
-<!--        <label for="country" class="form-label">Страна</label>-->
-<!--        <input type="text" class="form-control hvr-grow-shadow" id="country"  [(ngModel)]="formValues.country">-->
-<!--      </div>-->
-<!--      <div class="col">-->
-<!--        <label for="zip" class="form-label">Индекс</label>-->
-<!--        <input type="number" class="form-control hvr-grow-shadow" id="zip" [(ngModel)]="formValues.zip">-->
-<!--      </div>-->
-<!--      <div class="col">-->
-<!--        <label for="product" class="form-label">Товар</label>-->
-<!--        <input type="text" class="form-control hvr-grow-shadow" name="product" id="product" [(ngModel)]="formValues.product">-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="mb-3">-->
-<!--      <label for="address" class="form-label" [(ngModel)]="formValues.address">Адрес</label>-->
-<!--      <textarea class="form-control hvr-grow-shadow" id="address" rows="3"></textarea>-->
-
-<!--      <label for="comment" class="form-label" [(ngModel)]="formValues.comment">Комментарий</label>-->
-<!--      <textarea class="form-control hvr-grow-shadow" id="comment" rows="3"></textarea>-->
-<!--    </div>-->
-
-<!--    <button class="btn btn-primary hvr-pulse" id="submitButton">Отправить</button>-->
-
-<!--  </form>-->
-
-<!--  <div id="dialog" title="Успешно">-->
-<!--    <p>Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</p>-->
-<!--  </div>-->
-
-
-
-
-<!--</div>-->
-
-
 <div class="container d-flex justify-content-center min-vh-100">
   <div class="order-form col-lg-8 wow animate__fadeInLeft" id="orderForm">
-    <form id="form">
+
+    <!-- Сообщение об успехе -->
+    <div *ngIf="showSuccess" class="d-flex align-items-center justify-content-center min-vh-100">
+      <div class="alert alert-success text-center p-5">
+        <h3>Спасибо за заказ!</h3>
+        <p class="mb-3">Мы свяжемся с вами в ближайшее время!</p>
+    </div>
+    </div>
+
+    <!-- Форма заказа -->
+    <form *ngIf="!showSuccess" id="form" [formGroup]="orderForm" (ngSubmit)="sendOrder()">
       <div class="order-title"><h2>Сделать заказ</h2></div>
 
       <div class="row mb-3">
         <div class="col">
           <label for="firstName" class="form-label">Имя</label>
           <input type="text" class="form-control hvr-grow-shadow" id="firstName"
-                 name="name" [(ngModel)]="formValues.name" required>
+                 name="name" formControlName="name"
+                 [class.is-invalid]="getFieldError('name')">
+          <div class="invalid-feedback" *ngIf="getFieldError('name')">
+            {{ getFieldError('name') }}
+          </div>
         </div>
+
         <div class="col">
           <label for="lastName" class="form-label">Фамилия</label>
           <input type="text" class="form-control hvr-grow-shadow" id="lastName"
-                 name="lastName" [(ngModel)]="formValues.lastName" required>
+                 name="lastName" formControlName="last_name"
+                 [class.is-invalid]="getFieldError('last_name')">
+          <div class="invalid-feedback" *ngIf="getFieldError('last_name')">
+            {{ getFieldError('last_name') }}
+          </div>
         </div>
+
         <div class="col">
           <label for="phone" class="form-label">Телефон</label>
+          <!-- ИЗМЕНИТЕ type="number" НА type="tel" -->
           <input type="tel" class="form-control hvr-grow-shadow" id="phone"
-                 name="phone" [(ngModel)]="formValues.phone" required>
+                 name="phone" formControlName="phone"
+                 [class.is-invalid]="getFieldError('phone')">
+          <div class="invalid-feedback" *ngIf="getFieldError('phone')">
+            {{ getFieldError('phone') }}
+          </div>
         </div>
       </div>
 
@@ -80,37 +50,57 @@
         <div class="col">
           <label for="country" class="form-label">Страна</label>
           <input type="text" class="form-control hvr-grow-shadow" id="country"
-                 name="country" [(ngModel)]="formValues.country" required>
+                 name="country" formControlName="country"
+                 [class.is-invalid]="getFieldError('country')">
+          <div class="invalid-feedback" *ngIf="getFieldError('country')">
+            {{ getFieldError('country') }}
+          </div>
         </div>
+
         <div class="col">
           <label for="zip" class="form-label">Индекс</label>
           <input type="number" class="form-control hvr-grow-shadow" id="zip"
-                 name="zip" [(ngModel)]="formValues.zip" required>
+                 name="zip" formControlName="zip"
+                 [class.is-invalid]="getFieldError('zip')">
+          <div class="invalid-feedback" *ngIf="getFieldError('zip')">
+            {{ getFieldError('zip') }}
+          </div>
         </div>
+
         <div class="col">
           <label for="product" class="form-label">Товар</label>
           <input type="text" class="form-control hvr-grow-shadow fw-bold text-primary" id="product"
-                 name="product" [(ngModel)]="formValues.product" readonly>
+                 name="product" formControlName="product" readonly>
         </div>
       </div>
 
       <div class="mb-3">
         <label for="address" class="form-label">Адрес</label>
         <textarea class="form-control hvr-grow-shadow" id="address" rows="3"
-                  name="address" [(ngModel)]="formValues.address" required></textarea>
+                  name="address" formControlName="address"
+                  (input)="onAddressInput($event)"
+                  [class.is-invalid]="getFieldError('address')"></textarea>
+        <div class="invalid-feedback" *ngIf="getFieldError('address')">
+          {{ getFieldError('address') }}
+        </div>
       </div>
 
       <div class="mb-3">
         <label for="comment" class="form-label">Комментарий</label>
         <textarea class="form-control hvr-grow-shadow" id="comment" rows="3"
-                  name="comment" [(ngModel)]="formValues.comment"></textarea>
+                  name="comment" formControlName="comment"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary hvr-pulse" id="submitButton">Отправить</button>
-    </form>
+      <!-- Сообщение об ошибке -->
+      <div *ngIf="showError" class="alert alert-danger mb-3">
+        Произошла ошибка. Попробуйте еще раз.
+      </div>
 
-    <div id="dialog" title="Успешно">
-      <p>Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</p>
-    </div>
+      <button type="submit" class="btn btn-primary hvr-pulse" id="submitButton"
+              [disabled]="isLoading">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
+        {{ isLoading ? 'Отправка...' : 'Отправить' }}
+      </button>
+    </form>
   </div>
 </div>

@@ -10,16 +10,7 @@ export class CartService {
 
   constructor() { }
 
-  addToCart(product: ProductType): void {
-    this.products.push(product);
-    console.log('Товар добавлен в корзину:', product.title);
-  }
 
-  getCartItems(): ProductType[] {
-    return this.products;
-  }
 
-  clearCart(): void {
-    this.products = [];
-  }
+
 }

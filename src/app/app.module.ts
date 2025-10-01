@@ -9,7 +9,7 @@ import { OrderComponent } from './components/pages/order/order.component';
 import { HeaderComponent } from './components/common/header/header.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { CardComponent } from './components/pages/card/card.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -21,13 +21,14 @@ import {HttpClientModule} from "@angular/common/http";
     OrderComponent,
     HeaderComponent,
     FooterComponent,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

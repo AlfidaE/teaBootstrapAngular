@@ -1,23 +1,37 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, AfterViewInit} from '@angular/core';
 import { Router } from '@angular/router';
 import * as bootstrap from 'bootstrap';
 import { timer, Subscription } from 'rxjs';
+declare var WOW: any;
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   private modalTimerSubscription: Subscription | null = null;
   private bootstrapModal: bootstrap.Modal | null = null;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.modalTimerSubscription = timer(10000).subscribe(() => {
+     this.modalTimerSubscription = timer(10000).subscribe(() => {
       this.showModal();
     });
+
+
+   }
+
+  ngAfterViewInit(): void {
+    // Инициализируем WOW.js после полной загрузки представления
+    new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true,
+      live: true
+    }).init();
   }
 
   ngOnDestroy(): void {
