@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {ProductType} from "../../../../types/product.type";
+declare var WOW: any;
 
 
 @Component({
@@ -19,6 +20,10 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    new WOW({
+      animateClass: 'animate__animated',
+    }).init();
+
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         this.http.get<ProductType[]>('https://testologia.ru/tea')
