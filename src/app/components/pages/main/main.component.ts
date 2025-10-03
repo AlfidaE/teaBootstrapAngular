@@ -24,18 +24,14 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
    }
 
   ngAfterViewInit(): void {
-    new WOW({
-      animateClass: 'animate__animated',
-    }).init();
+    if (window.WOW) {
+      new window.WOW({
+        animateClass: 'animate__animated',
+      }).init();
+    }
 
-    // // Инициализируем WOW.js после полной загрузки представления
-    // new WOW({
-    //   boxClass: 'wow',
-    //   animateClass: 'animated',
-    //   offset: 0,
-    //   mobile: true,
-    //   live: true
-    // }).init();
+
+
   }
 
   ngOnDestroy(): void {
